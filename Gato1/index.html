@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gato | Rosa y vino</title>
+  <style>
+    :root{--wine:#741d3b;--deep:#511229;--rose:#f5b7c8;--pale:#ffe5ec;--white:#fff9fa}
+    *{box-sizing:border-box}
+    body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 15% 10%,#fff 0,transparent 38%),linear-gradient(140deg,#ffeaf0,#f5b7c8 60%,#e99ab0);font-family:"Trebuchet MS",Arial,sans-serif;color:var(--deep)}
+    .game{width:min(100%,470px);padding:36px clamp(18px,7vw,40px) 28px;text-align:center;background:#fff9faf0;border:1px solid #ffffffb0;border-radius:26px;box-shadow:0 24px 65px #741d3b30}
+    .eyebrow{margin:0 0 8px;color:#ae5571;font-size:.75rem;font-weight:bold;letter-spacing:.2em;text-transform:uppercase}
+    h1{margin:0;color:var(--wine);font:clamp(2.5rem,10vw,3.4rem) Georgia,serif;letter-spacing:-.04em}
+    .subtitle{margin:8px 0 24px;color:#936170}
+    .status{min-height:50px;display:flex;align-items:center;justify-content:center;gap:9px;margin-bottom:16px;padding:10px;background:var(--pale);border-radius:13px;color:var(--wine);font-weight:bold}
+    #mark{font-size:1.35rem}
+    .board{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:11px;background:#f6c7d3;border-radius:19px}
+    .cell{aspect-ratio:1;display:grid;place-items:center;padding:0;border:0;border-radius:13px;background:var(--white);color:var(--wine);font:bold clamp(3rem,17vw,5rem)/1 Arial,sans-serif;cursor:pointer;transition:transform .15s,background .15s,box-shadow .15s}
+    .cell:hover:not(:disabled){transform:translateY(-3px);background:white;box-shadow:0 7px 14px #741d3b20}
+    .cell:focus-visible,.reset:focus-visible{outline:3px solid #bd5575;outline-offset:3px}
+    .cell.x{color:#b43c61}.cell.o{color:var(--wine)}
+    .cell.winner{background:#ffe0a8;animation:glow .7s ease-in-out infinite alternate}
+    @keyframes glow{to{box-shadow:0 0 18px #e3a83e80}}
+    .footer{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:19px}
+    .legend{display:flex;gap:13px;color:#936170;font-size:.82rem;font-weight:bold}
+    .legend b{font-size:1.05rem}
+    .reset{padding:11px 15px;border:0;border-radius:11px;background:var(--wine);color:white;font-weight:bold;cursor:pointer}
+    .reset:hover{background:var(--deep)}
+    .confetti{position:fixed;z-index:5;top:-20px;width:10px;height:15px;pointer-events:none;animation:fall var(--duration) linear forwards}
+    @keyframes fall{to{transform:translate3d(var(--drift),110vh,0) rotate(850deg)}}
+    @media(max-width:380px){.footer{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+  </style>
+</head>
+<body>
+  <main class="game">
+    <p class="eyebrow">Un clásico para dos</p>
+    <h1>Gato</h1>
+    <p class="subtitle">Rosa, vino y un poquito de rivalidad ✦</p>
+    <div class="status" role="status" aria-live="polite"><span id="mark">✕</span><span id="message">Turno de Jugador 1</span></div>
+    <div class="board" role="group" aria-label="Tablero de gato">
+      <button class="cell" type="button" data-i="0" aria-label="Casilla 1"></button>
+      <button class="cell" type="button" data-i="1" aria-label="Casilla 2"></button>
+      <button class="cell" type="button" data-i="2" aria-label="Casilla 3"></button>
+      <button class="cell" type="button" data-i="3" aria-label="Casilla 4"></button>
+      <button class="cell" type="button" data-i="4" aria-label="Casilla 5"></button>
+      <button class="cell" type="button" data-i="5" aria-label="Casilla 6"></button>
+      <button class="cell" type="button" data-i="6" aria-label="Casilla 7"></button>
+      <button class="cell" type="button" data-i="7" aria-label="Casilla 8"></button>
+      <button class="cell" type="button" data-i="8" aria-label="Casilla 9"></button>
+    </div>
+    <div class="footer">
+      <div class="legend"><span><b style="color:#b43c61">✕</b> Jugador 1</span><span><b style="color:#741d3b">○</b> Jugador 2</span></div>
+      <button class="reset" id="reset" type="button">Nueva partida ↻</button>
+    </div>
+  </main>
+  <script>
+    (()=>{
+      const cells=[...document.querySelectorAll('.cell')];
+      const message=document.getElementById('message');
+      const mark=document.getElementById('mark');
+      const lines=[[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]];
+      let board=Array(9).fill(''),turn='X',done=false,timer;
+      function confetti(){
+        clearTimeout(timer);
+        const colors=['#741d3b','#b43c61','#f5b7c8','#e9a83b','#fff0a8','#fff9fa'];
+        for(let n=0;n<110;n++){
+          const piece=document.createElement('i');piece.className='confetti';
+          piece.style.left=Math.random()*100+'vw';piece.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+          piece.style.setProperty('--drift',(Math.random()*220-110)+'px');piece.style.setProperty('--duration',(2.2+Math.random()*2.8)+'s');
+          piece.style.animationDelay=Math.random()*1.2+'s';document.body.appendChild(piece);
+          piece.addEventListener('animationend',()=>piece.remove(),{once:true});
+        }
+        timer=setTimeout(()=>document.querySelectorAll('.confetti').forEach(p=>p.remove()),7000);
+      }
+      function play(event){
+        const cell=event.currentTarget,i=Number(cell.dataset.i);
+        if(done||board[i])return;
+        board[i]=turn;cell.textContent=turn==='X'?'✕':'○';cell.classList.add(turn==='X'?'x':'o');
+        cell.setAttribute('aria-label',`Casilla ${i+1}: ${turn==='X'?'Jugador 1, X':'Jugador 2, círculo'}`);
+        const win=lines.find(line=>line.every(j=>board[j]===turn));
+        if(win){done=true;win.forEach(j=>cells[j].classList.add('winner'));message.textContent=`¡Jugador ${turn==='X'?'1':'2'} ganó! ¡Felicidades!`;mark.textContent='🎉';cells.forEach(c=>c.disabled=true);confetti();}
+        else if(board.every(Boolean)){done=true;message.textContent='¡Empate! ¿Otra partida?';mark.textContent='♡';cells.forEach(c=>c.disabled=true);}
+        else{turn=turn==='X'?'O':'X';mark.textContent=turn==='X'?'✕':'○';message.textContent=`Turno de Jugador ${turn==='X'?'1':'2'}`;}
+      }
+      function reset(){
+        clearTimeout(timer);document.querySelectorAll('.confetti').forEach(p=>p.remove());board=Array(9).fill('');turn='X';done=false;
+        cells.forEach((c,i)=>{c.textContent='';c.disabled=false;c.className='cell';c.setAttribute('aria-label',`Casilla ${i+1}`);});
+        mark.textContent='✕';message.textContent='Turno de Jugador 1';
+      }
+      cells.forEach(c=>c.addEventListener('click',play));document.getElementById('reset').addEventListener('click',reset);
+    })();
+  </script>
+</body>
+</html>

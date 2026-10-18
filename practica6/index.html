@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Yad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --vino-principal: #5a121e;
+            --vino-obscuro: #380a13;
+            --rosa-soft: #f4c2c2;
+            --rosa-claro: #fdf5f6;
+            --amarillo-pastel: #fef08a;
+            --crema-bg: #faf7f5;
+            --blanco: #ffffff;
+            --radius: 20px; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--crema-bg);
+            color: var(--vino-obscuro);
+            line-height: 1.6;
+        }
+
+        /* PORTADA */
+        .hero {
+            position: relative;
+            width: 100%;
+            padding: 70px 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--vino-obscuro) 0%, var(--vino-principal) 100%);
+            color: var(--blanco);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--amarillo-pastel);
+            color: var(--vino-obscuro);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--rosa-soft);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        /* GALERÍA */
+        .contenedor {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 40px 0 70px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+   .card {
+            background-color: var(--blanco);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(56, 10, 19, 0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(244, 194, 194, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(56, 10, 19, 0.12);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 130%;
+            overflow: hidden;
+            background-color: var(--rosa-claro);
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--vino-obscuro);
+            color: var(--rosa-soft);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.4rem; }
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .contenedor { padding: 24px 0 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Colección Visual</span>
+            <h1 class="hero-title">Galería de <span>Yad</span></h1>
+            <p class="hero-subtitle">Mis recuerdos e historias en imágenes</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <div class="galeria-grid">
+            
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-
+
+us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615136/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=dd5si4WJdgNoWpukrh8UVp7RWrWMFpccCgPbNBqoGzltNZl6Yi97uSc6lreOCW9ayFxaj3YcT5cVCu-rjKQdY~RkU3iWSJPhsuLx58oXu-HvHi9wFfKQzPO3OJiKHEGrA~vZRJhy6EOWgXwDnnxCeyeQSNdhYmeV8lu3bIET0nmlyb1VNuuMTkldOs1Qzce3UfoztvT8haBR4jf81JPbWEHmlA6E~pAImaO2rO2qwMgcwrKHKlq0Hj8LXrTj7S9Lm4Aeo85PDqIBrBR6uZgz2wxd5eMH0UiaMn4wjqXl6WhuDCoaMcUWng9rvhwrOKfzbY8ICjJ0lBDdOk3cnotLwQ__" alt="Fotografía 1">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615137/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=JCzs7N2PMXTCbIjTHHFuRPSaHAjNDhPJriIErmIZgtvXVhpLMvgEUadWuv83QS~W01aOdDe6r78LAAdsQhXszn65rs-dZc95giq3BKl~wMQZRi7j2viQBGsuF7k2qAIunBWDFL~leBoGUUwUvFjrMDyWk3WvMsxc6aZLC0s65gwvDeNFGlskqIBTkun7bNmTTYEdCosH1ZVhmhhX9YAziKduoQCrhe6jG0mC31TZG2a739C2kA7Id8COcUN~i6xkE2UjhLZpglE5LBNCtEfgd3nf29kbAtbmkCP1PY7fXMSHwLh0tbZCJBWnjLwIjBepDb97TMUuvfNKXDwLO-34mA__" alt="Fotografía 2">
+                </div>
+            </article>
+
+<article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615138/default/preview.webp?Expires=1787907171&Key-Pair-Id=K3CGD36DHX2SX7&Signature=coOG0Xd0uGRBOcv12qsh0naAxUH7DvCjJa9thUH-IL5wM5T9sRdp6BQ3ZenY1eAxk9VeMXlBuvQ9Pz3hXyWOqYjlZpawi4aEeiKRngFTd9gnQwu5iD7dQXgGLzZrpqynwsS1c68b~nPcxDvcsZDxBHfiAa2cFWJwIjxwRUar0Lu8zvulfwD6PJPO3z9krJhXniuWqT08eXfAiMT9L1zcjk-wGSILA3b7VyLOod4LlBsA-dnk1KFfIv-plaz3JzjWjT5ygzMxJ-XiqzvWlJ~Z8NfdjUWfcm5iRH-Woj5wme6baVOvWGF4GtWzFblwiZAnZogBtXm~AyVtWMtUnUR4RA__" alt="Fotografía 3">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615139/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=hNZHjybthgOB4Jw4Gtjrl8ysGKUXj3c2yqcb5YbmpZgx-fzJej79fkYfR23ZIo8xKoD4MQT0t-xJH2WcP44tqms95-lMGU3jUdM-wad8-h1WPgM6J3EKRkxocd34jd2s6ki6Sb79R3474XWi7VvRLxnaNjS3-vOiwHctk6mpJWpA-bsoagzDlpQUDZaMResMGqKAEpvCpd925mf6IHhFxaj~VVS0qdA24NoPAkfcmbRaeleZJ4wP0DqKZaN37Yl7olyXIl4pj42578n9b0crcnmoPj2wwK79Plt-XAEdiqSUvYkjyHgdfaIhHnnAZfGnHgWSo9aUyzI3vRTbmlZp6g__" alt="Fotografía 4">
+
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615140/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=REk7g7QC3VAbuqEjSj4D3m5k9SUhdeTusNJjcYaUYMCeGMxY6ousPaFaVWvoM0WTS~4VTa-lO5al3-LMZ3WUSlyPB3ol3QZilBEnvaoT5Hybiqrsl9um2JK9ntPb6pmXsrmyCtVck6MLfTTwNIbjFAncgrtpB78MQ-gs-xd7swo4mVn5ByN5gtMmIaYvL2OnI0VZ043GTnPPDGCccKQdOnEuREt-vKj1JeZ7-xkOkUhQGzF5W74A8Mw2raaTdakotIbI5sTwV-8~O1jz0GfhAlSC0kgSYZQ5B40y4xsiMCOxjb7g8yLbMQue9GFbjennnAlqo3TR8oaoj-GKcNanag__" alt="Fotografía 5">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615141/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=Q5b5lTumBebMQ-ZXHAWu~KmSLd8NPj8ivbmGgsnY4UsICV3AMR~UxnV6-zSQv6FyI90KMZrNspyJ~dhHWIpyP29B00Edg5jaw4k1svc8hTr1N0XcrnSjyBSlLWwRtDABfV9UhZCzfbGdE~N2LqXOwVvYAFXs~RfVKs3Wch9701vXTpCLjZg7n~SlPCSolHkLi5GASA0fAB3uK~Tso4mbPZmauWfaRZxru5EiXk5hffZU4FKBDkokL7PjoKA6yYRkfSXJl02~H5osPdCe-WC99jeg4Uby1EhMhnsQcnuwCP-urQD-Q4BK8itt1gWoLgYri9Zxs9npBO4mjlno1cISuw__" alt="Fotografía 6">
+
+  </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615142/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=bfTcau59ZrtqS4fvt0D9uw2sv9kHvoPHJQPucMtQMwwWomVhnMM59i-iQpSiD3WBi6gOGTrisAIQAgZ2nqwCYA0BjntXoAljwkG31GVSF8SqRulahooQ1gEjq~sFdfuWmnqqlUL5IBqtAtGDQLyC8f6BBgU6VIxE2WMpIi3pv-akxMlvNvi825bWENydGnDrGlrGxetlnAoiXhYdxM1bJpHUQ9P3hRTEwiZi37mBAlbmyzaOERD~MaZth0~31H4BmwuEQ3VTYOQOO79u4439PYHLTc1vLC8mRVfxByEGnbIRWmLCeAe-8YLat6MKt4fJegxk9cvT63b0S7FiEriUBA__" alt="Fotografía 7">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615143/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=bB~bzJh8b4IYEOOUCnB6G2Dkujs1BkU9oT5ZbmEU1Prh5fypQbP9G-Iv4MF1Nq3Ei8LzPJX0Uk6qpVh5VI9xGsKp4e8-ytnFkMROVBPvq0P0vwVQnnzxyNPfoJzu-9YGIZpUJpvVY3UjItvH-~SsmpWsnKARZuY4rjs6J4jj2Yj-ZvClXaaZEDZoR3WPHvRacK38BmeDXs6Lk9HdNCH8a3xlDku0iI1sHDv9dNsRijjhHINIEhyJ6JQIMTRVyW92SeOK8AdhdbkjFvK7Yk6R5WG0aN8uAsgVQFpqDxo5AbsMwzZTyWLYGHZ0qpoxz7ihwrwQSK5p994OTpot1ICQlg__" alt="Fotografía 8">
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Yadira Reyes. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería de Yad</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --vino-principal: #5a121e;
+            --vino-obscuro: #380a13;
+            --rosa-soft: #f4c2c2;
+            --rosa-claro: #fdf5f6;
+            --amarillo-pastel: #fef08a;
+            --crema-bg: #faf7f5;
+            --blanco: #ffffff;
+            --radius: 20px;}
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--crema-bg);
+            color: var(--vino-obscuro);
+            line-height: 1.6;
+        }
+
+        /* PORTADA */
+        .hero {
+            position: relative;
+            width: 100%;
+            padding: 70px 20px 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, var(--vino-obscuro) 0%, var(--vino-principal) 100%);
+            color: var(--blanco);
+        }
+
+        .hero-content {
+            max-width: 700px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background-color: var(--amarillo-pastel);
+            color: var(--vino-obscuro);
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2.5px;
+            padding: 6px 18px;
+            border-radius: 50px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title span {
+            color: var(--rosa-soft);
+            font-style: italic;
+            font-weight: 400;
+        }
+
+        .hero-subtitle {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.85);
+            font-weight: 300;
+        }
+
+        /* GALERÍA */
+        .contenedor {
+            width: min(1100px, calc(100% - 32px));
+            margin: 0 auto;
+            padding: 40px 0 70px;
+        }
+
+        .galeria-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+   .card {
+            background-color: var(--blanco);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(56, 10, 19, 0.06);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border: 1px solid rgba(244, 194, 194, 0.3);
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 32px rgba(56, 10, 19, 0.12);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 130%;
+            overflow: hidden;
+            background-color: var(--rosa-claro);
+        }
+
+        .card:hover .card-img-wrapper img {
+            transform: scale(1.04);
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: var(--vino-obscuro);
+            color: var(--rosa-soft);
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        @media (max-width: 600px) {
+            .hero-title { font-size: 2.4rem; }
+            .galeria-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .contenedor { padding: 24px 0 50px; }
+        }
+    </style>
+</head>
+<body>
+
+<header class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Colección Visual</span>
+            <h1 class="hero-title">Galería de <span>Yad</span></h1>
+            <p class="hero-subtitle">Mis recuerdos e historias en imágenes</p>
+        </div>
+    </header>
+
+    <main class="contenedor">
+        <div class="galeria-grid">
+            
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-
+
+us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615136/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=dd5si4WJdgNoWpukrh8UVp7RWrWMFpccCgPbNBqoGzltNZl6Yi97uSc6lreOCW9ayFxaj3YcT5cVCu-rjKQdY~RkU3iWSJPhsuLx58oXu-HvHi9wFfKQzPO3OJiKHEGrA~vZRJhy6EOWgXwDnnxCeyeQSNdhYmeV8lu3bIET0nmlyb1VNuuMTkldOs1Qzce3UfoztvT8haBR4jf81JPbWEHmlA6E~pAImaO2rO2qwMgcwrKHKlq0Hj8LXrTj7S9Lm4Aeo85PDqIBrBR6uZgz2wxd5eMH0UiaMn4wjqXl6WhuDCoaMcUWng9rvhwrOKfzbY8ICjJ0lBDdOk3cnotLwQ__" alt="Fotografía 1">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615137/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=JCzs7N2PMXTCbIjTHHFuRPSaHAjNDhPJriIErmIZgtvXVhpLMvgEUadWuv83QS~W01aOdDe6r78LAAdsQhXszn65rs-dZc95giq3BKl~wMQZRi7j2viQBGsuF7k2qAIunBWDFL~leBoGUUwUvFjrMDyWk3WvMsxc6aZLC0s65gwvDeNFGlskqIBTkun7bNmTTYEdCosH1ZVhmhhX9YAziKduoQCrhe6jG0mC31TZG2a739C2kA7Id8COcUN~i6xkE2UjhLZpglE5LBNCtEfgd3nf29kbAtbmkCP1PY7fXMSHwLh0tbZCJBWnjLwIjBepDb97TMUuvfNKXDwLO-34mA__" alt="Fotografía 2">
+                </div>
+            </article>
+
+<article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615138/default/preview.webp?Expires=1787907171&Key-Pair-Id=K3CGD36DHX2SX7&Signature=coOG0Xd0uGRBOcv12qsh0naAxUH7DvCjJa9thUH-IL5wM5T9sRdp6BQ3ZenY1eAxk9VeMXlBuvQ9Pz3hXyWOqYjlZpawi4aEeiKRngFTd9gnQwu5iD7dQXgGLzZrpqynwsS1c68b~nPcxDvcsZDxBHfiAa2cFWJwIjxwRUar0Lu8zvulfwD6PJPO3z9krJhXniuWqT08eXfAiMT9L1zcjk-wGSILA3b7VyLOod4LlBsA-dnk1KFfIv-plaz3JzjWjT5ygzMxJ-XiqzvWlJ~Z8NfdjUWfcm5iRH-Woj5wme6baVOvWGF4GtWzFblwiZAnZogBtXm~AyVtWMtUnUR4RA__" alt="Fotografía 3">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615139/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=hNZHjybthgOB4Jw4Gtjrl8ysGKUXj3c2yqcb5YbmpZgx-fzJej79fkYfR23ZIo8xKoD4MQT0t-xJH2WcP44tqms95-lMGU3jUdM-wad8-h1WPgM6J3EKRkxocd34jd2s6ki6Sb79R3474XWi7VvRLxnaNjS3-vOiwHctk6mpJWpA-bsoagzDlpQUDZaMResMGqKAEpvCpd925mf6IHhFxaj~VVS0qdA24NoPAkfcmbRaeleZJ4wP0DqKZaN37Yl7olyXIl4pj42578n9b0crcnmoPj2wwK79Plt-XAEdiqSUvYkjyHgdfaIhHnnAZfGnHgWSo9aUyzI3vRTbmlZp6g__" alt="Fotografía 4">
+
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615140/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=REk7g7QC3VAbuqEjSj4D3m5k9SUhdeTusNJjcYaUYMCeGMxY6ousPaFaVWvoM0WTS~4VTa-lO5al3-LMZ3WUSlyPB3ol3QZilBEnvaoT5Hybiqrsl9um2JK9ntPb6pmXsrmyCtVck6MLfTTwNIbjFAncgrtpB78MQ-gs-xd7swo4mVn5ByN5gtMmIaYvL2OnI0VZ043GTnPPDGCccKQdOnEuREt-vKj1JeZ7-xkOkUhQGzF5W74A8Mw2raaTdakotIbI5sTwV-8~O1jz0GfhAlSC0kgSYZQ5B40y4xsiMCOxjb7g8yLbMQue9GFbjennnAlqo3TR8oaoj-GKcNanag__" alt="Fotografía 5">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615141/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=Q5b5lTumBebMQ-ZXHAWu~KmSLd8NPj8ivbmGgsnY4UsICV3AMR~UxnV6-zSQv6FyI90KMZrNspyJ~dhHWIpyP29B00Edg5jaw4k1svc8hTr1N0XcrnSjyBSlLWwRtDABfV9UhZCzfbGdE~N2LqXOwVvYAFXs~RfVKs3Wch9701vXTpCLjZg7n~SlPCSolHkLi5GASA0fAB3uK~Tso4mbPZmauWfaRZxru5EiXk5hffZU4FKBDkokL7PjoKA6yYRkfSXJl02~H5osPdCe-WC99jeg4Uby1EhMhnsQcnuwCP-urQD-Q4BK8itt1gWoLgYri9Zxs9npBO4mjlno1cISuw__" alt="Fotografía 6">
+
+  </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615142/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=bfTcau59ZrtqS4fvt0D9uw2sv9kHvoPHJQPucMtQMwwWomVhnMM59i-iQpSiD3WBi6gOGTrisAIQAgZ2nqwCYA0BjntXoAljwkG31GVSF8SqRulahooQ1gEjq~sFdfuWmnqqlUL5IBqtAtGDQLyC8f6BBgU6VIxE2WMpIi3pv-akxMlvNvi825bWENydGnDrGlrGxetlnAoiXhYdxM1bJpHUQ9P3hRTEwiZi37mBAlbmyzaOERD~MaZth0~31H4BmwuEQ3VTYOQOO79u4439PYHLTc1vLC8mRVfxByEGnbIRWmLCeAe-8YLat6MKt4fJegxk9cvT63b0S7FiEriUBA__" alt="Fotografía 7">
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-img-wrapper">
+                    <img src="https://preview-us.wetransfer.net/transfer/b9dedce8e1fe9daec5a87f6c25d987bd20260828025145/hl-26358615143/default/preview.webp?Expires=1787907172&Key-Pair-Id=K3CGD36DHX2SX7&Signature=bB~bzJh8b4IYEOOUCnB6G2Dkujs1BkU9oT5ZbmEU1Prh5fypQbP9G-Iv4MF1Nq3Ei8LzPJX0Uk6qpVh5VI9xGsKp4e8-ytnFkMROVBPvq0P0vwVQnnzxyNPfoJzu-9YGIZpUJpvVY3UjItvH-~SsmpWsnKARZuY4rjs6J4jj2Yj-ZvClXaaZEDZoR3WPHvRacK38BmeDXs6Lk9HdNCH8a3xlDku0iI1sHDv9dNsRijjhHINIEhyJ6JQIMTRVyW92SeOK8AdhdbkjFvK7Yk6R5WG0aN8uAsgVQFpqDxo5AbsMwzZTyWLYGHZ0qpoxz7ihwrwQSK5p994OTpot1ICQlg__" alt="Fotografía 8">
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; Yadira Reyes. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
